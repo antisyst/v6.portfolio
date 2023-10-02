@@ -1,0 +1,16 @@
+@import "~nprogress/nprogress.css";
+
+#nprogress {
+  .bar {
+    background: var(--color-component-black);
+    height: 100vh;  
+    transform: rotate(180deg);
+  }
+  .peg {
+    box-shadow: none;
+  }
+  .spinner-icon {
+    border-top-color: var(--color-component-main);
+    border-left-color: var(--color-component-main);
+  }
+}

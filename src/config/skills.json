@@ -1,0 +1,89 @@
+{
+    "skills": [
+      {
+        "name": "HTML",
+        "icon": "SiHtml5"
+      },
+      {
+        "name": "CSS",
+        "icon": "SiCss3"
+      },
+      {
+        "name": "Vue",
+        "icon": "FaVuejs"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "SiJavascript"
+      },
+      {
+        "name": "ReactJS",
+        "icon": "SiReact"
+      },
+      {
+        "name": "NextJS",
+        "icon": "SiNextdotjs"
+      },
+      {
+        "name": "Redux",
+        "icon": "SiRedux"
+      },
+      {
+        "name": "SASS",
+        "icon": "DiSass"
+      },
+      {
+        "name": "ViteJS",
+        "icon": "SiVitest"
+      },
+      {
+        "name": "Styled C.",
+        "icon": "SiStyledcomponents"
+      },
+      {
+        "name": "NPM",
+        "icon": "DiNpm"
+      },
+      {
+        "name": "Webpack",
+        "icon": "SiWebpack"
+      },
+      {
+        "name": "jQuery",
+        "icon": "SiJquery"
+      },
+      {
+        "name": "Tailwind",
+        "icon": "SiTailwindcss"
+      },
+      {
+        "name": "MaterialUI",
+        "icon": "SiMui"
+      },
+      {
+        "name": "Bootstrap",
+        "icon": "SiBootstrap"
+      },
+      {
+        "name": "Axios",
+        "icon": "SiAxios"
+      },
+      {
+        "name": "Git",
+        "icon": "SiGit"
+      },
+      {
+        "name": "BabelJS",
+        "icon": "SiBabel"
+      },
+      {
+        "name": "Jest",
+        "icon": "SiJest"
+      },
+      {
+        "name": "Motion",
+        "icon": "TbBrandFramerMotion"
+      }
+    ]
+  }
+  

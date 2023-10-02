@@ -1,0 +1,87 @@
+:root {
+
+  //  COLOR 
+
+--color-component-white: #ffff;
+--color-component-rgba: rgba(0,0,0,0);
+--color-component-black: #000;
+--color-component-prim: #121212;
+--color-component-back: #12121289;
+--color-component-main: #0070f3;
+
+  //  FONTS
+
+--font-general: 'General Sans', sans-serif;
+--font-mix:  'General Sans', 'Clash Grotesk', sans-serif;
+--font-clash:  'Clash Grotesk', sans-serif;
+
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+
+&::selection {
+  background: var(--color-component-main);
+}
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  position: fixed;
+}
+body {
+  font-family: var(--font-mix);
+  color: var(--color-component-white);
+  background: var(--color-component-black);
+  padding: 0 3%;
+  overflow-x: hidden;
+
+  &::selection {
+    background: var(--color-component-main);
+  }
+}
+span {
+  user-select: none;
+}
+html {
+  overflow-x: hidden;
+}
+
+a, button {
+user-select: none;
+cursor: pointer;
+
+@media only screen and (max-width: 800px) {
+  cursor: none;
+}
+}
+
+.scrolled {
+  margin-top: 30px;
+  background: rgba(0,0,0,0.5);
+  padding: 32px 30px;
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+
+  @media only screen and (max-width: 800px) {
+    padding: 20px 10px;
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 800px) {
+  a {
+    cursor: none;
+  }
+}
+.split-text {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+}
