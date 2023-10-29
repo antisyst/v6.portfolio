@@ -55,9 +55,6 @@ const Loader = () => {
   return (
         <LoaderConfig>
             <MainLogo/>
-            <LoaderContentConfig>
-              <LoaderContent>Ignore</LoaderContent><LoaderContentSecond>Distractions</LoaderContentSecond>
-            </LoaderContentConfig>
         </LoaderConfig>
   )
 }
