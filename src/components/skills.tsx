@@ -50,58 +50,65 @@ const SkillsConfigItem = styled.div `
     }
 `
 
-const SkillsElement = () => {
+const SkillsElement = ({ skills }: { skills: Skill[] }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
 
-    const skills: Skill[] = skillsData.skills;
-
-    const controls = useAnimation();
-    const [ref, inView] = useInView({
-      triggerOnce: true,
-    });
-  
-    useEffect(() => {
-      if (inView) {
-        controls.start('visible');
-      }
-    }, [controls, inView]);
-
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
 
   return (
     <SkillsConfigContainer>
-                  {skills.map((skill, index) => (
-                    <ScrollReveal>
-                        <SkillsConfigItem key={index}>
-                             {iconComponents[skill.icon] && React.createElement(iconComponents[skill.icon])} 
-                            <h2>{skill.name}</h2>
-                        </SkillsConfigItem>
-                    </ScrollReveal>
-                    ))}
+      {skills &&
+        skills.map((skill, index) => (
+          <ScrollReveal key={index}>
+            <SkillsConfigItem>
+              {iconComponents[skill.icon] && React.createElement(iconComponents[skill.icon])}
+              <h2>{skill.name}</h2>
+            </SkillsConfigItem>
+          </ScrollReveal>
+        ))}
     </SkillsConfigContainer>
-  )
-}
+  );
+};
 
 const iconComponents: Record<string, React.ComponentType<any>> = {
-    SiHtml5,
-    SiCss3,
-    FaVuejs,
-    SiJavascript,
-    SiReact,
-    SiNextdotjs,
-    SiRedux,
-    DiSass,
-    SiVitest,
-    SiStyledcomponents,
-    DiNpm,
-    SiWebpack,
-    SiJquery,
-    SiTailwindcss,
-    SiMui,
-    SiBootstrap,
-    SiAxios,
-    SiGit,
-    SiBabel,
-    SiJest,
-    TbBrandFramerMotion,
+SiHtml5,
+SiCss3,
+FaVuejs,
+SiJavascript,
+SiReact,
+SiNextdotjs,
+SiRedux,
+DiSass,
+SiVitest,
+SiStyledcomponents,
+DiNpm,
+SiWebpack,
+SiJquery,
+SiTailwindcss,
+SiMui,
+SiBootstrap,
+SiAxios,
+SiGit,
+SiBabel,
+SiJest,
+TbBrandFramerMotion,
+};
+
+export async function getServerSideProps() {
+  const skills: Skill[] = skillsData.skills;
+
+  return {
+    props: {
+      skills,
+    },
   };
+}
 
 export default SkillsElement;

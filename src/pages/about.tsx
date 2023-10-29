@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ScrollReveal from '@/utils/ScrollReveal';
 import content from '../config/content.json';
 import SkillsElement from '@/components/skills';
-
+import skillsData from '@/config/skills.json';
 
 const AboutRouteMain = styled.main `
   text-align: left;
@@ -34,23 +34,21 @@ const AboutRouteContent = styled.p `
 `
 
 const About = () => {
-
   const aboutData = content[1];
-
- 
+  const skills = skillsData.skills;
 
   return (
     <AboutRouteMain>
       <ScrollReveal>
-      <RouterActionTitle>About Me</RouterActionTitle>
+        <RouterActionTitle>About Me</RouterActionTitle>
       </ScrollReveal>
       <ScrollReveal>
         <AboutRouteContent>{aboutData.content}</AboutRouteContent>
         <AboutRouteContent>{aboutData.second}</AboutRouteContent>
       </ScrollReveal>
-      <SkillsElement/>
+      <SkillsElement skills={skills} />
     </AboutRouteMain>
-  )
+  );
 }
 
 export default About;

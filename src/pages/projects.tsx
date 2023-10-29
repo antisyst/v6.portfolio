@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ScrollReveal from '@/utils/ScrollReveal';
-import Project from '@/utils/ProjectConfig';
 import projects from '@/config/projects.json'; 
 
 
@@ -80,27 +79,35 @@ interface WorkItem {
   domain: string;
 }
 
-const Projects = () => {
-
-
-
+const Projects = ({ projects }: { projects: WorkItem[] }) => {
   return (
     <ProjectsRouteMain>
       <ScrollReveal>
         <RouterActionTitle>Projects</RouterActionTitle>
       </ScrollReveal>
       <ProjectsConfigContainer>
-      {projects.map((project: any, index: number) => (
-           <ScrollReveal>
-              <ProjectConfigItem key={index}>
-                <ProjectItemName>{project.WorksH1}</ProjectItemName>
-                <ProjectButtonRouter href={project.domain} target='_blank'>Visit Project</ProjectButtonRouter>
-              </ProjectConfigItem>
-           </ScrollReveal>
+        {projects.map((project: WorkItem, index: number) => (
+          <ScrollReveal key={index}>
+            <ProjectConfigItem>
+              <ProjectItemName>{project.WorksH1}</ProjectItemName>
+              <ProjectButtonRouter href={project.domain} target='_blank'>Visit Project</ProjectButtonRouter>
+            </ProjectConfigItem>
+          </ScrollReveal>
         ))}
       </ProjectsConfigContainer>
     </ProjectsRouteMain>
-  )
+  );
 }
 
-export default Projects
+export async function getServerSideProps() {
+  const res = await fetch('https://raw.githubusercontent.com/antisyst/v5.portfolio/main/src/config/projects.json');
+  const projects = await res.json();
+
+  return {
+    props: {
+      projects,
+    },
+  };
+}
+
+export default Projects;

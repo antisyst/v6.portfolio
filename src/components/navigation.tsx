@@ -1,18 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import MainLogo from '@/assets/logo';
 import { motion } from "framer-motion";
 import { BiMessageSquareDots } from 'react-icons/bi';
-import FormField from './form';
 
 
 const tabs = [
     { id: 1, label: "Home", router: "/" },
     { id: 2, label: "About", router: "/about" },
     { id: 3, label: "Projects", router: "/projects" },
-    { id: 4, label: "Tools", router: "/tools" },
+    { id: 4, label: "Playlist", router: "/playlist" },
   ];
+
+
+
 
 const NavigationConfig = styled.div `
     width: 100%;
@@ -116,7 +118,7 @@ const LinkRouterAction = styled(Link) `
 
     @media only screen and (max-width: 800px) {
       font-size: 18px;
-      padding: 5px 10px;
+      padding: 5px 7px;
       cursor: none;
     }
 
@@ -128,7 +130,7 @@ const LinkRouterAction = styled(Link) `
     &:nth-child(4) {
        &::after {
         position: absolute;
-        content: "V5";
+        content: "V6F";
         filter: drop-shadow(0 0 0.75rem var(--color-component-main));
         font-size: 14px;
         border-radius: 100px;
@@ -154,7 +156,7 @@ const MotionAnimationSharedItem = styled(motion.div) `
     border-radius: 9999px; 
     z-index: -10;
 `
-const MessageActionButton = styled.button `
+const MessageActionButton = styled.a `
     background: var(--color-component-main);
     z-index: 2200;
     border: none;
@@ -183,31 +185,9 @@ const MessageActionButton = styled.button `
       font-size: 26px;
     }
 `
+
 const Navigation = () => {
 
-
-  const [showForm, setShowForm] = useState(false);
-  const [isBodyOverflowHidden, setIsBodyOverflowHidden] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowForm(!showForm);
-  };
-
-  const handleCloseForm = () => {
-    setShowForm(false);
-  };
-
-  useEffect(() => {
-    if (showForm) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [showForm]);
 
     const [activeTab, setActiveTab] = useState<number>(tabs[0].id);
     const [scrolling, setScrolling] = useState(false);
@@ -231,7 +211,7 @@ const Navigation = () => {
     <NavigationConfig>
         <NavLogoItem>
                  <MainLogo/>
-            <BetaTitleItem>V5</BetaTitleItem>
+            <BetaTitleItem>V6</BetaTitleItem>
         </NavLogoItem>
                     <NavLinksConfig>
                         <NavLinksBackDrop  className={`  ${navClassName}`}>
@@ -256,12 +236,10 @@ const Navigation = () => {
                     </NavLinksBackDrop>
                     </NavLinksConfig>
         <MessageActionItem>
-                    <MessageActionButton onClick={handleButtonClick}>
-                    {showForm ? '' : ''}
+                    <MessageActionButton href='https://t.me/rmzn_dev' target='_blank'>
                       <BiMessageSquareDots/>
                     </MessageActionButton>
         </MessageActionItem>
-        <FormField isVisible={showForm} onClose={handleCloseForm} />
     </NavigationConfig>
   )
 }

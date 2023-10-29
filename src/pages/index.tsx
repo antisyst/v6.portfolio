@@ -8,7 +8,6 @@ const MainIndexConfigAction = styled.main `
 export default function Home() {
   return (
     <>
-     <HeadConfig/>
       <MainIndexConfigAction>
        <Showcase/>
       </MainIndexConfigAction>

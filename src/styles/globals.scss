@@ -17,7 +17,7 @@
 
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 0;
   display: none;
 }
@@ -58,6 +58,9 @@ a, button {
 user-select: none;
 cursor: pointer;
 
+img {
+  user-select: none;
+}
 @media only screen and (max-width: 800px) {
   cursor: none;
 }
@@ -84,4 +87,82 @@ cursor: pointer;
   font-size: 2rem;
   font-weight: bold;
   display: inline-block;
+}
+@keyframes slideDownAndDisappear {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes LoaderContentFrame {
+  0% {
+    opacity: 0;
+    color: var(--color-component-black);
+    filter: none;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: LoaderContentFrame 1s ease-in-out 2s forwards;
+    color: var(--color-component-white);
+    filter: drop-shadow(0 0 0.5rem var(--color-component-main));
+  }
+}
+@keyframes LoaderContentFrameSecond {
+  0% {
+    opacity: 0;
+    color: var(--color-component-black);
+    filter: none;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: LoaderContentFrame 1s ease-in-out 2s forwards;
+    color: var(--color-component-main);
+    filter: drop-shadow(0 0 0.5rem var(--color-component-main));
+  }
+}
+@keyframes EnergyActionFrame {
+  0% {
+    filter: drop-shadow(0 0 0.97rem var(--color-component-main));
+  }
+  100% {
+    filter: none;
+  }
+}
+
+.custom_scroll {
+  scrollbar-width: thin;
+  scrollbar-color: blue yellow;
+}
+
+.custom_scroll::-webkit-scrollbar {
+  width: 6px;
+  display: none;
+}
+
+/* Track */
+.custom_scroll::-webkit-scrollbar-track {
+  background: none; 
+}
+ 
+/* Handle */
+.custom_scroll::-webkit-scrollbar-thumb {
+  background: var(--color-component-main);
+  border-radius: 40px;
+  width: 6px;
+}
+
+/* Handle on hover */
+.custom_scroll::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
