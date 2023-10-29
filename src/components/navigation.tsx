@@ -130,7 +130,7 @@ const LinkRouterAction = styled(Link) `
     &:nth-child(4) {
        &::after {
         position: absolute;
-        content: "V6F";
+        content: "V6";
         filter: drop-shadow(0 0 0.75rem var(--color-component-main));
         font-size: 14px;
         border-radius: 100px;
